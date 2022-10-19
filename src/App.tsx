@@ -5,6 +5,7 @@ import Accordion from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 import {TasksType, Todolist} from "./Todolist/Todolist";
 import {Button} from './components/Button/Button';
+import {OnOff} from './components/OnOff/OnOff';
 
 let tasks1:Array<TasksType> = [
     {
@@ -45,15 +46,16 @@ function App() {
 
     return (
         <div className="App">
-            <Rating value={1}/>
-            <Accordion value={`1st text for hading`} collapsed={true}/>
-            <Accordion value={`2nd text for heading`} collapsed={false}/>
-            <Rating value={4}/>
-            <Todolist title="What to learn" tasks={tasks1}/>
-            <Todolist title="What to read" tasks={tasks2}/>
-            <Button onOff={false}/>
-            <Button onOff={true}/>
-            <Button onOff={true}/>
+            {/*<Rating value={1}/>*/}
+            {/*<Accordion value={`1st text for hading`} collapsed={true}/>*/}
+            {/*<Accordion value={`2nd text for heading`} collapsed={false}/>*/}
+            {/*<Rating value={4}/>*/}
+            {/*<Todolist title="What to learn" tasks={tasks1}/>*/}
+            {/*<Todolist title="What to read" tasks={tasks2}/>*/}
+            {/*<Button onOff={false}/>*/}
+            {/*<Button onOff={false}/>*/}
+            {/*<Button onOff={true}/>*/}
+            <OnOff on={true}/>
         </div>
     );
 }
