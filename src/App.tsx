@@ -59,7 +59,7 @@ function App() {
             {/*<OnOff/>*/}
             {/*<OnOff/>*/}
             {/*<OnOff/>*/}
-            {/*<UncotrolledAccordion value={`some text`}/>*/}
+            <UncotrolledAccordion value={`some text`}/>
             {/*<UncotrolledAccordion value={`some text`}/>*/}
         </div>
     );

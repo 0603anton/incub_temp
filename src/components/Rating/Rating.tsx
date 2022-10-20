@@ -28,8 +28,8 @@ type StarPropsType = {
 function Star(props: StarPropsType) {
     return (
         <>
-            {props.selected && <span><b>*-</b></span>}
-            {!props.selected && <span>*-</span>}
+            {props.selected && <span><b>star*-</b></span>}
+            {!props.selected && <span>star*-</span>}
         </>
     )
 }
