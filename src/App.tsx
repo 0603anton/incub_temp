@@ -54,7 +54,7 @@ function App() {
             <Rating/>
             <ControlledOnOff onControlled={onControlled} setOnonControlled={setOnonControlled}/>
             <ControlledRating value={value} onClick={setValue}/>
-            <Accordion value={`Controlled`} accordionIsCollapsed={accordionIsCollapsed} setaccordionValue={setaccordionValue}/>
+            <Accordion value={`Controlled`} accordionIsCollapsed={accordionIsCollapsed} setaccordionValue={()=>setaccordionValue(!accordionIsCollapsed)}/>
             {/*<Accordion value={`2nd text for heading`} collapsed={false}/>*/}
             {/*<Rating value={4}/>*/}
             {/*<Todolist title="What to learn" tasks={tasks1}/>*/}
