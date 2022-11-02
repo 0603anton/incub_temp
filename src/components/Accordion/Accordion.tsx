@@ -1,26 +1,29 @@
 import React from "react";
 
 type AccordionPropsType = {
-    value: string,
-    collapsed: boolean;
+    value: string
+    setaccordionValue: (accordionIsCollapsed:boolean)=>void
+    accordionIsCollapsed:boolean
 }
 
 type AccordionTitlePropsType = {
     title:string
+    onClick:(accordionIsCollapsed:boolean)=>void
+    value:boolean
 }
 
-function Accordion(props: AccordionPropsType) {
+export function Accordion(props: AccordionPropsType) {
     return (
         <div>
-    <AccordionTitle title={props.value}/>
-    {!props.collapsed && <AccordionBody/>}
+    <AccordionTitle value={props.accordionIsCollapsed} onClick={props.setaccordionValue} title={props.value}/>
+    {!props.accordionIsCollapsed && <AccordionBody/>}
         </div>
     )
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
     return (
-        <h3>
+        <h3 onClick={()=>props.onClick(!props.value)}>
             {props.title}
         </h3>
     );
@@ -38,4 +41,3 @@ function AccordionBody() {
     );
 }
 
-export default Accordion;

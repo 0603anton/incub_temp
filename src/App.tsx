@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Accordion from './components/Accordion/Accordion';
 import {Rating} from './components/Rating/Rating';
-import {TasksType, Todolist} from './Todolist/Todolist';
-import {Button} from './components/Button/Button';
-import {OnOff} from './components/OnOff/OnOff';
+import {TasksType} from './Todolist/Todolist';
 import {UncotrolledAccordion} from './components/UncontrolledAccordion/UncontrolledAccordion';
+import {ControlledRating, PropsValueType} from "./components/Rating/ControlledRating";
+import {Accordion} from "./components/Accordion/Accordion";
+import {ControlledOnOff} from "./components/OnOff/ControlledOnOff";
 
 let tasks1: Array<TasksType> = [
     {
@@ -45,10 +45,16 @@ let tasks2: Array<TasksType> = [
 
 function App() {
 
+    const [value,setValue] = useState<PropsValueType>(0)
+    const [accordionIsCollapsed, setaccordionValue] = useState(false)
+    const [onControlled, setOnonControlled] = useState(false);
+
     return (
         <div className="App">
             <Rating/>
-            {/*<Accordion value={`1st text for hading`} collapsed={true}/>*/}
+            <ControlledOnOff onControlled={onControlled} setOnonControlled={setOnonControlled}/>
+            <ControlledRating value={value} onClick={setValue}/>
+            <Accordion value={`Controlled`} accordionIsCollapsed={accordionIsCollapsed} setaccordionValue={setaccordionValue}/>
             {/*<Accordion value={`2nd text for heading`} collapsed={false}/>*/}
             {/*<Rating value={4}/>*/}
             {/*<Todolist title="What to learn" tasks={tasks1}/>*/}
