@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-type PropsType = {
+export type PropsType = {
     onControlled:boolean
     setOnonControlled:(onControlled:boolean)=>void
 }

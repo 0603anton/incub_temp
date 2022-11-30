@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 export type PropsValueType = 0 | 1 | 2 | 3 | 4 | 5;
 
-type RatingPropsType = {
+export type RatingPropsType = {
     value: PropsValueType
     onClick: (value: PropsValueType) => void
 }
