@@ -1,10 +1,11 @@
-import React, {SetStateAction, useRef, useState} from 'react';
+import React, {ChangeEvent, useRef, useState} from 'react';
 import {action} from "@storybook/addon-actions";
 
 
 export default {
     title: `input`,
     // component: Accordion,
+    argTypes: { onClick: { action: 'clicked' } },
 }
 
 
@@ -33,7 +34,6 @@ export const GetValueOfUncotrolledInputbyButtonClick = () => {
 }
 
 
-
 // решение через рефы
 
 export const GetValueOfUncotrolledInputbyButtonClick_1_useREF = () => {
@@ -52,4 +52,30 @@ export const GetValueOfUncotrolledInputbyButtonClick_1_useREF = () => {
 }
 // рефы следует избегать
 
-export const CotrolledInput = () => <input value={`somevalue`}/>;
+
+// КАБЗЛА 13 FLUX контролируемый элмент
+
+
+export const CotrolledInput = () => {
+    const [parentValue,setParentValue]=useState(``);
+const onChangeHandler = (e:ChangeEvent<HTMLInputElement>)=>{setParentValue(e.currentTarget.value)}
+    return <input value={parentValue} onChange={onChangeHandler}/>;
+}
+
+
+export const ControlledCheckbox = () => {
+    const [parentValue,setParentValue]=useState<boolean>(true);
+    const onChangeHandler = (e:ChangeEvent<HTMLInputElement>)=>{setParentValue(e.currentTarget.checked)}
+    return <input type={"checkbox"} checked={parentValue} onChange={onChangeHandler}/>;
+}
+
+const ControlledSelect = () => {
+    const [parentValue,setParentValue]=useState<string | undefined>(undefined);
+    const onChangeHandler = (e:ChangeEvent<HTMLSelectElement>)=>{setParentValue(e.currentTarget.value)}
+    return <select value={parentValue} onChange={onChangeHandler} name="" id="">
+        <option >none</option>
+        <option value={`1`}>Minsk</option>
+        <option value={`2`}>Moscow</option>
+        <option value={`3`}>Kiev</option>
+    </select>
+}
