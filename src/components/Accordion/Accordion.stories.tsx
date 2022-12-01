@@ -8,10 +8,10 @@ export default {
     component: Accordion,
 }
 
-export const collapsed = () => <Accordion value={`menu`} accordionIsCollapsed={true} setaccordionValue={action(`smth changed`)}/>;
-export const uncollapsed = () => <Accordion value={`menu`} accordionIsCollapsed={false} setaccordionValue={action(`smth changed`)}/>;
+export const collapsed = () => <Accordion items={[]} value={`menu`} accordionIsCollapsed={true} setaccordionValue={action(`smth changed`)}/>;
+export const uncollapsed = () => <Accordion items={['anton','anton','anton','anton','anton']} value={`menu`} accordionIsCollapsed={false} setaccordionValue={action(`smth changed`)}/>;
 
 export const ChangingAccordion = () => {
     const [CollapsedStatus, setCollapsedStatus] = useState<boolean>(false);
-    return <Accordion value={`menu`} accordionIsCollapsed={CollapsedStatus} setaccordionValue={()=>setCollapsedStatus(!CollapsedStatus)}/>
+    return <Accordion items={['anton','anton','anton','anton','anton']} value={`menu`} accordionIsCollapsed={CollapsedStatus} setaccordionValue={()=>setCollapsedStatus(!CollapsedStatus)}/>
 }
