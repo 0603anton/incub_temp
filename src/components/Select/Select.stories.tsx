@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Select from './Select';
 import {action} from '@storybook/addon-actions';
@@ -17,8 +17,11 @@ export const SomeSelect = ()=>{
         {title:`react`, value: 3},
         {title:`redux`, value: 4},
     ]
-    const [selectValue,setSelectValue] = useState(`css`)
+    const [selectedValue,setSelectedValue] = useState(`css`)
+    const onChangeHandler = (title:any) => {
+        setSelectedValue(title)
+    }
     return (
-        <Select value={selectValue} onChange={setSelectValue} items={items}/>
+        <Select value={selectedValue} onChange={onChangeHandler} items={items}/>
     )
 }

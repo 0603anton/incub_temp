@@ -7,6 +7,7 @@ import {ControlledRating, PropsValueType} from "./components/Rating/ControlledRa
 import {Accordion} from "./components/Accordion/Accordion";
 import {ControlledOnOff} from "./components/OnOff/ControlledOnOff";
 import Input from "./components/Input/Input";
+import Select from "./components/Select/Select";
 
 let tasks1: Array<TasksType> = [
     {
@@ -68,6 +69,7 @@ function App() {
             {/*<UncotrolledAccordion value={`some text`}/>*/}
             {/*<UncotrolledAccordion value={`some text`}/>*/}
             <Input/>
+            {/*<Select value={} onChange={} items={}*/}
         </div>
     );
 }

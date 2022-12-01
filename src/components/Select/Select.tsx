@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import './Select.css';
 
 type ItemType = {
     title: string
@@ -14,13 +15,20 @@ type SelectPropsType={
 
 
 const Select = (props:SelectPropsType) => {
+    const [collapsed, setCollapsed] = useState(false)
+    const selectOnClickHandler = () => {
+        setCollapsed(!collapsed)
+    }
+    const blurHandler = () => {
+        setCollapsed(!collapsed)
+    }
     let cuurentvalue = props.items.filter((val)=> val.title === props.value)
     return (
-        <div>
+        <div onBlur={blurHandler} className={`container`}>
             {/*// текущий итем через фильтр всех итемов и сравнить с вэлью*/}
-            <div>{}</div>
+            <div onClick={selectOnClickHandler} >{cuurentvalue.map(i => <div key={i.value}>{i.title}</div>)}</div>
         {/*    если раскукожить все items*/}
-            {props.items.map(i => <div>{i.title}</div>)}
+            {collapsed ? props.items.map(i => <div key={i.value} onClick={()=>props.onChange(i.title)}>{i.title}</div>) : ``}
         </div>
     );
 };
