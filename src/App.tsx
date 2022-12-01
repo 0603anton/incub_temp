@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import {Rating} from './components/Rating/Rating';
 import {TasksType} from './Todolist/Todolist';
@@ -7,6 +6,7 @@ import {UncotrolledAccordion} from './components/UncontrolledAccordion/Uncontrol
 import {ControlledRating, PropsValueType} from "./components/Rating/ControlledRating";
 import {Accordion} from "./components/Accordion/Accordion";
 import {ControlledOnOff} from "./components/OnOff/ControlledOnOff";
+import Input from "./components/Input/Input";
 
 let tasks1: Array<TasksType> = [
     {
@@ -51,10 +51,10 @@ function App() {
 
     return (
         <div className="App">
-            <Rating/>
-            <ControlledOnOff onControlled={onControlled} setOnonControlled={setOnonControlled}/>
-            <ControlledRating value={value} onClick={setValue}/>
-            <Accordion value={`Controlled`} accordionIsCollapsed={accordionIsCollapsed} setaccordionValue={()=>setaccordionValue(!accordionIsCollapsed)}/>
+            {/*<Rating/>*/}
+            {/*<ControlledOnOff onControlled={onControlled} setOnonControlled={setOnonControlled}/>*/}
+            {/*<ControlledRating value={value} onClick={setValue}/>*/}
+            {/*<Accordion value={`Controlled`} accordionIsCollapsed={accordionIsCollapsed} setaccordionValue={()=>setaccordionValue(!accordionIsCollapsed)}/>*/}
             {/*<Accordion value={`2nd text for heading`} collapsed={false}/>*/}
             {/*<Rating value={4}/>*/}
             {/*<Todolist title="What to learn" tasks={tasks1}/>*/}
@@ -65,8 +65,9 @@ function App() {
             {/*<OnOff/>*/}
             {/*<OnOff/>*/}
             {/*<OnOff/>*/}
-            <UncotrolledAccordion value={`some text`}/>
             {/*<UncotrolledAccordion value={`some text`}/>*/}
+            {/*<UncotrolledAccordion value={`some text`}/>*/}
+            <Input/>
         </div>
     );
 }
