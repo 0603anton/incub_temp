@@ -25,3 +25,5 @@ export const SomeSelect = ()=>{
         <Select value={selectedValue} onChange={onChangeHandler} items={items}/>
     )
 }
+
+//TODO не срабатывает блюр

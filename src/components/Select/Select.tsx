@@ -18,15 +18,17 @@ const Select = (props:SelectPropsType) => {
     const [collapsed, setCollapsed] = useState(false)
     const selectOnClickHandler = () => {
         setCollapsed(!collapsed)
+        console.log(`click`)
     }
     const blurHandler = () => {
-        setCollapsed(!collapsed)
+        console.log(`blur`)
+        setCollapsed(false)
     }
     let cuurentvalue = props.items.filter((val)=> val.title === props.value)
     return (
-        <div onBlur={blurHandler} className={`container`}>
+        <div  onClick={selectOnClickHandler} className={`container`}>
             {/*// текущий итем через фильтр всех итемов и сравнить с вэлью*/}
-            <div onClick={selectOnClickHandler} >{cuurentvalue.map(i => <div key={i.value}>{i.title}</div>)}</div>
+            <div onBlur={blurHandler} >{cuurentvalue.map(i => <div key={i.value}>{i.title}</div>)}</div>
         {/*    если раскукожить все items*/}
             {collapsed ? props.items.map(i => <div key={i.value} onClick={()=>props.onChange(i.title)}>{i.title}</div>) : ``}
         </div>
