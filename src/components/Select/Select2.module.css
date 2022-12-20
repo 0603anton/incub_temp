@@ -1,0 +1,29 @@
+/*.container{*/
+/*    border: 1px solid black;*/
+/*}*/
+
+.select .main{
+    border: 1px solid black;
+    display: inline-block;
+    min-height: 20px;
+    min-width: 40px;
+}
+
+.items{
+/*display: none;*/
+    position: absolute;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.item:hover{
+    background: blue;
+}
+
+.selected{
+    background: blue;
+}
+
+/*.select.active .items{*/
+/*    display: block;*/
+/*}*/
