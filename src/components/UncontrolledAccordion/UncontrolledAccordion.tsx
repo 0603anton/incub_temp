@@ -13,12 +13,24 @@ type actionType = {
     type: string
 }
 
+const TOGGLE_COLLAPSED = 'TOGGLE_COLLAPSED'
 
 const accordionReducer = (state: boolean, action: actionType) => {
-    if (action.type === 'TOGGLE_COLLAPSED') {
-        return !state;
+    switch (action.type) {
+        case TOGGLE_COLLAPSED:
+            return !state
+        default:
+            throw new Error('Bad action type') // свою конкретную ошибку делать
     }
-    return state;
+    return state
+
+    // Приоритет использовать switch
+
+    // if (action.type === TOGGLE_COLLAPSED) {
+    //     return !state;
+    // }
+    // return state;
+
 }
 
 
@@ -53,7 +65,9 @@ function AccordionBody() {
     return (
         <div>
             <ul>
-
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
             </ul>
         </div>
     );
