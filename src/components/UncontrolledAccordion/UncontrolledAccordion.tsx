@@ -1,4 +1,5 @@
-import React, {useReducer, useState} from 'react';
+import React, {useReducer} from 'react';
+import {accordionReducer, TOGGLE_COLLAPSED} from './reducer';
 
 type AccordionPropsType = {
     value: string,
@@ -9,35 +10,11 @@ type AccordionTitlePropsType = {
     onClick: () => void
 }
 
-type actionType = {
-    type: string
-}
-
-const TOGGLE_COLLAPSED = 'TOGGLE_COLLAPSED'
-
-const accordionReducer = (state: boolean, action: actionType) => {
-    switch (action.type) {
-        case TOGGLE_COLLAPSED:
-            return !state
-        default:
-            throw new Error('Bad action type') // свою конкретную ошибку делать
-    }
-    return state
-
-    // Приоритет использовать switch
-
-    // if (action.type === TOGGLE_COLLAPSED) {
-    //     return !state;
-    // }
-    // return state;
-
-}
-
 
 export function UncotrolledAccordion(props: AccordionPropsType) {
 
     // const [collapsed, setCollapsed] = useState(true)
-    const [collapsed, dispatchCollapsed] = useReducer(accordionReducer, false)
+    const [state, dispatchCollapsed] = useReducer(accordionReducer, {collapsed:false})
 
 
     return (
@@ -46,9 +23,9 @@ export function UncotrolledAccordion(props: AccordionPropsType) {
             {/*    setCollapsed(!collapsed)*/}
             {/*}}/> */}
             <AccordionTitle title={props.value} onClick={() => {
-                dispatchCollapsed({type:'TOGGLE_COLLAPSED'})
+                dispatchCollapsed({type:TOGGLE_COLLAPSED})
             }}/>
-            {!collapsed && <AccordionBody/>}
+            {!state.collapsed && <AccordionBody/>}
         </div>
     )
 }
