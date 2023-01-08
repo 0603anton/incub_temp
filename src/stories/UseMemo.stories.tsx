@@ -41,3 +41,28 @@ export const Example2 = () => {
     </>
 
 }
+
+const UsersSecret = (props: { users: Array<string> }) => {
+    console.log(`users презентационный, вложеннный в мемо`)
+    return <div>
+        {props.users.map((u, i) => <div key={i}>{u}</div>)}
+    </div>
+}
+
+const Users = React.memo(UsersSecret)
+
+export const HelpsToReactMemo = () =>{
+    console.log(`компонент в котором всё вложено и преезтционный юзерси контейнерный`)
+    const [counter,setCounter] = useState(10)
+    const [users,setusers] = useState(['Anton','Dima','Serg','Anton'])
+
+    let newArray = useMemo(()=>{
+       return  users.filter(u=>u.toLowerCase().indexOf(`a`) > -1)
+    }, [users])
+
+    return <>
+        <button onClick={()=>setCounter(counter+1)}>+</button>
+        {counter}
+        <Users users={newArray}/>
+    </>
+}
